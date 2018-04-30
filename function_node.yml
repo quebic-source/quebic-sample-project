@@ -1,7 +1,7 @@
 function:
   name: user_validate_function
   source: /<artifat location>/user_validate.js
-  handler: validationHandler
+  handler: user_validate.validationHandler
   runtime: nodejs
   replicas: 2
   events:
