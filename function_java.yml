@@ -1,7 +1,7 @@
 function:
   name: user_create_function
-  artifactStoredLocation: /<artifat location>/quebic-demoapp-user-create-function-0.0.1-SNAPSHOT.jar
-  handlerPath: com.quebic.demoapp.UserCreateFunction
+  source: /<artifat location>/quebic-demoapp-user-create-function-0.0.1-SNAPSHOT.jar
+  handler: com.quebic.demoapp.UserCreateFunction
   runtime: java
   events:
     - users.UserCreate
