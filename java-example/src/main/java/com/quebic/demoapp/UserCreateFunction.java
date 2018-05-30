@@ -10,9 +10,15 @@ public class UserCreateFunction implements RequestHandler<User, User>{
 
 	public void handle(final User user, final CallBack<User> callBack, final Context context) {
 		
-		context.messenger().publish("users.UserValidate", user, s->{
+		context.messenger().publish("UserValidate", user, s->{
 			
 			user.setId(UUID.randomUUID().toString());
+			
+			//time consuming operation
+			//block for 8 seconds
+			try {
+				Thread.sleep(8 * 1000);
+			} catch (InterruptedException e) {}
 			
 			callBack.success(201, user);
 			

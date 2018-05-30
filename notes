@@ -1,0 +1,6 @@
+curl -v 10.104.44.127:3000/manage/health
+
+curl -v --request POST -H "Content-Type: application/json" --data '{"email":"t1@gmail.com", "name":"quebic"}'  10.104.44.127:3000/users
+
+curl -v 10.104.44.127:3000/request-tracker/
+

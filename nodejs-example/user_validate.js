@@ -1,10 +1,16 @@
 exports.validationHandler = function(payload, context, callback){
     
+    context.logger().info('validation start');
+
     if(validateUser(payload)){
+
+        context.logger().info('validation success');
         
         callback(null, true, 200);
 
     }else{
+
+        context.logger().error('validation failed');
 
         callback(new Error('Not a valid e-mail address'), null, 400);
 
