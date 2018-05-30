@@ -26,7 +26,7 @@ public class UserCreateFunction implements RequestHandler<User, User>{
 				
 			callBack.failure(e.statuscode(), e.error());
 			
-		}, 1000 * 8);
+		});
 		
 	}
 
