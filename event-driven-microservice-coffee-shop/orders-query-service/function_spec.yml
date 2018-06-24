@@ -14,9 +14,9 @@ function:
 route:
   name: orders
   requestMethod: GET
-  url: /orders/{orderId}
+  url: /orders/{id}
   successResponseStatus: 200
   event: request.OrderFetch
   requestMapping:
-    - eventAttribute: orderId
-      requestAttribute: orderId
+    - eventAttribute: id
+      requestAttribute: id

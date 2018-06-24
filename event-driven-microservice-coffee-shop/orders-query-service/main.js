@@ -7,7 +7,7 @@ exports.handler = function (payload, context, callback) {
 
     if (context.eventID == 'request.OrderFetch') {
 
-        const order = fetchQueryData(payload.orderId);
+        const order = fetchQueryData(payload.id);
         if (order == undefined) {
             callback(new Error('Unable to found order'), null, 404);
         } else {
@@ -20,17 +20,18 @@ exports.handler = function (payload, context, callback) {
 
 }
 
-function fetchQueryData(orderId) {
-    return query_data_store[orderId];
+function fetchQueryData(id) {
+    return query_data_store[id];
 }
 
 function saveQueryData(order) {
-    query_data_store[order.orderId] = order;
+    query_data_store[order.id] = order;
 }
 
 function fetchLatestPayloads() {
 
-    const eventbox_conn_str = process.env['eventbox.conn_str'];
+    //const eventbox_conn_str = process.env['eventbox.conn_str'];
+    const eventbox_conn_str = 'http://localhost:8080';
     const domain_name = 'orders';
 
     //<eventbox_conn_str>/api/domains/<domain_name>/domain-events/latest-payloads
