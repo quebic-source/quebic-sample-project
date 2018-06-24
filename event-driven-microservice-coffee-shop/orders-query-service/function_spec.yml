@@ -5,14 +5,16 @@ function:
   runtime: nodejs
   replicas: 1
   events:
-    - request.*
-    - orders.*
+    - request.OrderFetch
+    - orders.OrderPlaced
+    - orders.OrderAccepted
+    - orders.OrderStarted
+    - orders.OrderFinished
 
 route:
   name: orders
   requestMethod: GET
   url: /orders/{orderId}
-  async: true
   successResponseStatus: 200
   event: request.OrderFetch
   requestMapping:

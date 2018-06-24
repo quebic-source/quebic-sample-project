@@ -1,0 +1,18 @@
+function:
+  name: orders-command-service
+  source: /<artifat location>/main.js
+  handler: main.handler
+  runtime: nodejs
+  replicas: 1
+  events:
+    - request.OrderPlaced
+    - orders.OrderBeanValidated
+    - orders.CoffeeBrewStarted
+    - orders.CoffeeBrewFinished
+
+route:
+  name: orders
+  requestMethod: POST
+  url: /orders
+  successResponseStatus: 201
+  event: request.OrderPlaced
