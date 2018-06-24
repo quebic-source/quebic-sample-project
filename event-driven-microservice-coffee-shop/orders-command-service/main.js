@@ -3,11 +3,11 @@ exports.handler = function (payload, context, callback) {
     if (context.eventID == event_request_OrderPlaced) {
         placeOrder(payload, context, callback)
     } else if (context.eventID == event_OrderBeanValidated) {
-        acceptOrder(payload, context, callback)
+        acceptOrder(payload, context)
     } else if (context.eventID == event_CoffeeBrewStarted) {
-        startOrder(payload, context, callback)
+        startOrder(payload, context)
     } else if (context.eventID == event_CoffeeBrewFinished) {
-        finishOrder(payload, context, callback)
+        finishOrder(payload, context)
     } 
 
 }
@@ -21,34 +21,34 @@ function placeOrder(order, context, callback) {
     
     callback(null, order, 201);
 
-    fireEvent(event_OrderPlaced, order);
+    fireEvent(event_OrderPlaced, order, context);
 }
 
-function acceptOrder(order, context, callback) {
+function acceptOrder(order, context) {
 
     order['status'] = status_accepted;
 
-    fireEvent(event_OrderAccepted, order);
+    fireEvent(event_OrderAccepted, order, context);
 
 }
 
-function startOrder(order, context, callback) {
+function startOrder(order, context) {
 
     order['status'] = status_started;
 
-    fireEvent(event_OrderStarted, order);
+    fireEvent(event_OrderStarted, order, context);
     
 }
 
-function finishOrder(order, context, callback) {
+function finishOrder(order, context) {
 
     order['status'] = status_finished;
 
-    fireEvent(event_OrderFinished, order);
+    fireEvent(event_OrderFinished, order, context);
     
 }
 
-function fireEvent(context, type, payload){
+function fireEvent(type, payload, context){
     context.messenger().publish(type, payload);
 }
 
