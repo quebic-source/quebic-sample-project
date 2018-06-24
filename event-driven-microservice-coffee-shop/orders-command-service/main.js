@@ -21,14 +21,14 @@ function placeOrder(order, context, callback) {
     
     callback(null, order, 201);
 
-    fireEvent(event_OrderPlaced, order, context);
+    publishEvent(event_OrderPlaced, order, context);
 }
 
 function acceptOrder(order, context) {
 
     order['status'] = status_accepted;
 
-    fireEvent(event_OrderAccepted, order, context);
+    publishEvent(event_OrderAccepted, order, context);
 
 }
 
@@ -36,7 +36,7 @@ function startOrder(order, context) {
 
     order['status'] = status_started;
 
-    fireEvent(event_OrderStarted, order, context);
+    publishEvent(event_OrderStarted, order, context);
     
 }
 
@@ -44,11 +44,11 @@ function finishOrder(order, context) {
 
     order['status'] = status_finished;
 
-    fireEvent(event_OrderFinished, order, context);
+    publishEvent(event_OrderFinished, order, context);
     
 }
 
-function fireEvent(type, payload, context){
+function publishEvent(type, payload, context){
     context.messenger().publish(type, payload);
 }
 
