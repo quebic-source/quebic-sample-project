@@ -1,6 +1,6 @@
 function:
   name: barista-service
-  source: /<artifat location>/main.js
+  source: /home/tharanga/my/quebic-faas/github/quebic-sample-project/event-driven-microservice-coffee-shop/barista-service/main.js
   handler: main.handler
   runtime: nodejs
   replicas: 1

@@ -1,9 +1,14 @@
 exports.handler = function (payload, context, callback) {
+ 
+    console.log('handler payload', payload);
+    console.log('handler context', context);
 
     if (context.eventID == event_request_OrderPlaced) {
         placeOrder(payload, context, callback)
     } else if (context.eventID == event_OrderBeanValidated) {
         acceptOrder(payload, context)
+    } else if (context.eventID == event_OrderBeanCancelled) {
+        cancelOrder(payload, context)
     } else if (context.eventID == event_CoffeeBrewStarted) {
         startOrder(payload, context)
     } else if (context.eventID == event_CoffeeBrewFinished) {
@@ -18,6 +23,8 @@ function placeOrder(order, context, callback) {
     
     order['id'] = id;
     order['status'] = status_placed;
+
+    console.log('placeOrder', order);
     
     callback(null, order, 201);
 
@@ -48,6 +55,14 @@ function finishOrder(order, context) {
     
 }
 
+function cancelOrder(order, context) {
+
+    order['status'] = status_cancelled;
+
+    publishEvent(event_OrderCancelled, order, context);
+
+}
+
 function publishEvent(type, payload, context){
     context.messenger().publish(type, payload);
 }
@@ -63,15 +78,18 @@ function generateUUID() {
 };
 
 const event_OrderBeanValidated = 'orders.OrderBeanValidated';
+const event_OrderBeanCancelled = 'orders.OrderBeanCancelled';
 const event_CoffeeBrewStarted = 'orders.CoffeeBrewStarted';
 const event_CoffeeBrewFinished = 'orders.CoffeeBrewFinished';
 const event_OrderPlaced = 'orders.OrderPlaced';
 const event_OrderAccepted = 'orders.OrderAccepted';
 const event_OrderStarted = 'orders.OrderStarted';
 const event_OrderFinished = 'orders.OrderFinished';
+const event_OrderCancelled = 'orders.OrderCancelled';
 const event_request_OrderPlaced = 'request.OrderPlaced';
 
 const status_placed = 'PLACED';
 const status_accepted = 'ACCEPTED';
 const status_started = 'STARTED';
 const status_finished = 'FINISHED';
+const status_cancelled = 'CANCELLED';

@@ -1,0 +1,5 @@
+name: orders
+requestMethod: POST
+url: /demo/orders
+successResponseStatus: 201
+event: request.OrderPlaced

@@ -1,6 +1,6 @@
 function:
   name: beans-service
-  source: /<artifat location>/main.js
+  source: /home/tharanga/my/quebic-faas/github/quebic-sample-project/event-driven-microservice-coffee-shop/beans-service/main.js
   handler: main.handler
   runtime: nodejs
   replicas: 1

@@ -1,6 +1,6 @@
 function:
   name: order-query-service
-  source: /<artifat location>/main.js
+  source: /home/tharanga/my/quebic-faas/github/quebic-sample-project/event-driven-microservice-coffee-shop/orders-query-service/main.js
   handler: main.handler
   runtime: nodejs
   replicas: 1
@@ -10,13 +10,4 @@ function:
     - orders.OrderAccepted
     - orders.OrderStarted
     - orders.OrderFinished
-
-route:
-  name: orders
-  requestMethod: GET
-  url: /orders/{id}
-  successResponseStatus: 200
-  event: request.OrderFetch
-  requestMapping:
-    - eventAttribute: id
-      requestAttribute: id
+    - orders.OrderCancelled
