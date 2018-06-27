@@ -1,8 +1,5 @@
 exports.handler = function (payload, context, callback) {
  
-    console.log('handler payload', payload);
-    console.log('handler context', context);
-
     if (context.eventID == event_request_OrderPlaced) {
         placeOrder(payload, context, callback)
     } else if (context.eventID == event_OrderBeanValidated) {
@@ -24,8 +21,6 @@ function placeOrder(order, context, callback) {
     order['id'] = id;
     order['status'] = status_placed;
 
-    console.log('placeOrder', order);
-    
     callback(null, order, 201);
 
     publishEvent(event_OrderPlaced, order, context);
