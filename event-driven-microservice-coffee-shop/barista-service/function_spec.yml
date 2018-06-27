@@ -1,6 +1,6 @@
 function:
   name: barista-service
-  source: /home/tharanga/my/quebic-faas/github/quebic-sample-project/event-driven-microservice-coffee-shop/barista-service/main.js
+  source: <location>/barista-service/main.js
   handler: main.handler
   runtime: nodejs
   replicas: 1

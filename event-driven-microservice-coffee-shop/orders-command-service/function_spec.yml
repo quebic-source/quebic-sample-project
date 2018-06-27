@@ -1,6 +1,6 @@
 function:
   name: orders-command-service
-  source: /home/tharanga/my/quebic-faas/github/quebic-sample-project/event-driven-microservice-coffee-shop/orders-command-service/main.js
+  source: <location>/orders-command-service/main.js
   handler: main.handler
   runtime: nodejs
   replicas: 1

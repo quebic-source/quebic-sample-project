@@ -1,6 +1,6 @@
 function:
   name: order-query-service
-  source: /home/tharanga/my/quebic-faas/github/quebic-sample-project/event-driven-microservice-coffee-shop/orders-query-service/main.js
+  source: <location>/orders-query-service/main.js
   handler: main.handler
   runtime: nodejs
   replicas: 1
