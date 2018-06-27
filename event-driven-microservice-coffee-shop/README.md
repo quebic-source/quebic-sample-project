@@ -5,7 +5,7 @@
 * Note: Make sure Docker and  kubernetes are configured and running in your environment.
 
 # Create Functions
-#### Run these commands for create functions
+#### Run these commands for creating functions
 * `quebic function create -f orders-command-service/function_spec.yml`
 
 * `quebic function create -f orders-query-service/function_spec.yml`
@@ -15,7 +15,7 @@
 * `quebic function create -f barista-service/function_spec.yml`
 
 # Config Routes
-#### Run these commands for config routes
+#### Run these commands for configuring routes
 * `quebic route create -f routes/order-place-route.yml`
 
 * `quebic route create -f routes/order-fetch-route.yml`
