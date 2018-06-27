@@ -24,7 +24,7 @@
 #### Run this commands to start eventbox
 * `quebic eventbox start`
 
-#### Run this curl to create new domain 
+#### Run this curl to create **orders** domain 
 * `curl --request POST -H "Content-Type: application/json" --data '{"eventGroup":"orders", "name":"orders", "aggregateIdField":"id"}'  <eventbox-host:port>/api/domains`
 
 #### Eventbox UI also provides way to create domains. Open `<eventbox-host:port>/domains` in your web browser.
@@ -42,7 +42,7 @@
 * `curl <api-gateway-host:port>/orders/{id}`
 
 # EventBox domain events
-## Inspect domain-events of orders domain 
+## Inspect domain-events of **orders** domain 
 * REST `curl <eventbox-host:port>/api/domains/orders/domain-events`
 * UI `<eventbox-host:port>/domain-events?domainName=orders`
 
