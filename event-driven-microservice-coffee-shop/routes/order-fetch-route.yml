@@ -1,6 +1,6 @@
-name: orders
+name: fetch_orders
 requestMethod: GET
-url: /demo/orders/{id}
+url: /orders/{id}
 successResponseStatus: 200
 event: request.OrderFetch
 requestMapping:

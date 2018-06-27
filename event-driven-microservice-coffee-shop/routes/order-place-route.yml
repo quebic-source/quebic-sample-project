@@ -1,5 +1,5 @@
-name: orders
+name: place_orders
 requestMethod: POST
-url: /demo/orders
+url: /orders
 successResponseStatus: 201
 event: request.OrderPlaced

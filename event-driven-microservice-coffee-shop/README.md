@@ -16,29 +16,36 @@
 
 # Config Routes
 #### Run these commands for config routes
-* `quebic-faas-cli route create -f routes/order-place-route.yml`
+* `quebic route create -f routes/order-place-route.yml`
 
-* `quebic-faas-cli route create -f routes/order-fetch-route.yml`
+* `quebic route create -f routes/order-fetch-route.yml`
 
 # Setup EventBox
 #### Run this commands to start eventbox
-`quebic eventbox start`
+* `quebic eventbox start`
 
 #### Run this curl to create new domain 
-`curl --request POST -H "Content-Type: application/json" --data '{"eventGroup":"orders", "name":"orders", "aggregateIdField":"id"}'  <eventbox-host:port>/api/domains`
+* `curl --request POST -H "Content-Type: application/json" --data '{"eventGroup":"orders", "name":"orders", "aggregateIdField":"id"}'  <eventbox-host:port>/api/domains`
 
-##### Note: Eventbox UI also provides way to create domains. Open `<eventbox-host:port>/domains` in your web browser.
+#### Eventbox UI also provides way to create domains. Open `<eventbox-host:port>/domains` in your web browser.
 
-# order-places
-curl --request POST -H "Content-Type: application/json" --data '{"beanType":"bean_type_3"}'  10.104.44.127:3000/demo/orders
+# APIGateway Connection URI
+#### Run this commands to get api-gateway connection uri
+* `quebic api-gateway`
 
-# order-fetch
-curl 10.104.44.127:3000/demo/orders/{id}
+# Test Sample Application
+## Plaece Order 
+* `curl --request POST -H "Content-Type: application/json" --data '{"beanType":"bean_type_1"}'  <api-gateway-host:port>/orders`
+* This will return created order with order-id.
 
-# eventbox ui
-open this in browser http://10.107.174.101:8080/domains
+## Fetch created order details by order-id
+* `curl <api-gateway-host:port>/orders/{id}`
 
-# domain events
-open this in browser http://10.107.174.101:8080/domain-events?domainName=orders
+# EventBox domain events
+## Inspect domain-events of orders domain 
+* REST `curl <eventbox-host:port>/api/domains/orders/domain-events`
+* UI `<eventbox-host:port>/domain-events?domainName=orders`
 
-# reproduce
+## Reproduce domain-event
+* REST `curl <eventbox-host:port>/api/domains/orders/domain-events/reproduce?eventId=<domain-event-id>`
+* UI
