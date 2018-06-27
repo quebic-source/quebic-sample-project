@@ -33,7 +33,7 @@
 #### Run this commands to get api-gateway connection uri
 * `quebic api-gateway`
 
-# Test Sample Application
+# Testing Sample Application
 ## Plaece Order 
 * `curl --request POST -H "Content-Type: application/json" --data '{"beanType":"bean_type_1"}'  <api-gateway-host:port>/orders`
 * This will return created order with order-id.
