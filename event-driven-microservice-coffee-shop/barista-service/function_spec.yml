@@ -1,0 +1,8 @@
+function:
+  name: barista-service
+  source: /<artifat location>/main.js
+  handler: main.handler
+  runtime: nodejs
+  replicas: 1
+  events:
+    - orders.OrderAccepted

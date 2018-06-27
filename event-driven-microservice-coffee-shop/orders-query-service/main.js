@@ -30,8 +30,7 @@ function saveQueryData(order) {
 
 function fetchLatestPayloads() {
 
-    //const eventbox_conn_str = process.env['eventbox.conn_str'];
-    const eventbox_conn_str = 'http://localhost:8080';
+    const eventbox_conn_str = process.env['EVENTBOX_URI'];
     const domain_name = 'orders';
 
     //<eventbox_conn_str>/api/domains/<domain_name>/domain-events/latest-payloads

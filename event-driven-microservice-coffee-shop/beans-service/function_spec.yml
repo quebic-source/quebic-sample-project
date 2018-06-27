@@ -1,0 +1,9 @@
+function:
+  name: beans-service
+  source: /<artifat location>/main.js
+  handler: main.handler
+  runtime: nodejs
+  replicas: 1
+  events:
+    - orders.OrderPlaced
+    - orders.CoffeeBrewStarted
