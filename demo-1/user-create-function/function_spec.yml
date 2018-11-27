@@ -1,0 +1,14 @@
+function:
+  name: user-create
+  source: /home/tharanga/my/quebic-faas/demos/code-fest-2018-09-25/user-create-function/target/quebic-demoapp-user-create-function-0.0.1-SNAPSHOT.jar
+  handler: com.quebic.demoapp.UserCreateFunction
+  runtime: java
+  events:
+    - UserCreate
+
+route:
+  requestMethod: POST
+  url: /users
+  async: true
+  headersToPass:
+    - Authorization

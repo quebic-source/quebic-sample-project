@@ -9,8 +9,7 @@ function:
 
 route:
   requestMethod: GET
-  url: /validate
-  async: true
+  url: /users/validate
   requestMapping:
     - eventAttribute: email
       requestAttribute: q
