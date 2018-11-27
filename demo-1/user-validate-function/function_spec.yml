@@ -1,6 +1,6 @@
 function:
   name: user-validate
-  source: /home/tharanga/my/quebic-faas/github/quebic-sample-project/nodejs-example/user_validate.js
+  source: <source location>/user_validate.js
   handler: user_validate.validationHandler
   runtime: nodejs
   replicas: 1
