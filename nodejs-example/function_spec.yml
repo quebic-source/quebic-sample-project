@@ -6,6 +6,9 @@ function:
   replicas: 1
   events:
     - UserValidate
+  env:
+    - name: TEST_ENV
+      value: demo
 
 route:
   requestMethod: GET
